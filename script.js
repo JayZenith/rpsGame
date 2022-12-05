@@ -3,33 +3,51 @@ function getComputerChoice() {
     return array[Math.floor(Math.random() * array.length)];
  }
 
-function playRound(playerSelection, computerSelection){
-    if(computerSelection == playerSelection)
-        return "same";
-    if(computerSelection == "rock" && playerSelection == "paper")
-        return "win";
-    if(computerSelection == "rock" && playerSelection == "scissors")
-        return "won";
-    if(computerSelection == "paper" && playerSelection == "rock")
-        return "lost";
-    if(computerSelection == "paper" && playerSelection == "scissors")
-        return "won";
-    if(computerSelection == "scissors" && playerSelection == "rock")
-        return "won";
-    if(computerSelection == "scissors" && playerSelection == "paper")
-        return "lost";
+function game(playerSelection, computerSelection){
+    for(let i = 0; i < 5; i++){
+        console.log(`Round: ${round}`);
+        if(computerSelection == playerSelection){
+            res ="same";
+        }
+        if(computerSelection == "rock" && playerSelection == "paper"){
+            res ="won";
+        }
+        if(computerSelection == "rock" && playerSelection == "scissors")
+            res ="won";
+        if(computerSelection == "paper" && playerSelection == "rock")
+            res ="lost";
+        if(computerSelection == "paper" && playerSelection == "scissors")
+            res ="won";
+        if(computerSelection == "scissors" && playerSelection == "rock")
+            res = "won";
+        if(computerSelection == "scissors" && playerSelection == "paper")
+            res = "lost";
+
+        if(res == "same"){
+            console.log(`Same! as ${playerSelection} == ${computerSelection}`);
+        }
+        if(res == "won"){
+            me++;
+            console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+        }
+        if(res == "lost"){
+            comp++;
+            console.log(`You Lose! ${playerSelection} loses to ${computerSelection}`);
+        }
+
+        if(comp == 3)
+            console.log("comp wins");
+        if(me == 3){
+            console.log("I win");
+        }
+        round++;
+    }
 }
 
- 
-const computer = getComputerChoice();
-const player = prompt("choice?");
-
-const result = playRound(player, computer);
-
-if(result == "win")
-    console.log(`You Win! ${player} beats ${computer}`);
-if(result == "lost")
-    console.log(`You Lose! ${player} loses to ${computer}`);
-if(result == "same")
-    console.log(`Same! as ${player} == ${computer}`);
-
+let me = 0;
+let comp = 0;
+let round = 1;
+let res = "";
+let computer = getComputerChoice();
+let player = prompt("choice?");
+game(player, computer);
