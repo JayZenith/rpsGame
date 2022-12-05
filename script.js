@@ -3,8 +3,10 @@ function getComputerChoice() {
     return array[Math.floor(Math.random() * array.length)];
  }
 
-function game(playerSelection, computerSelection){
+function game(){
     for(let i = 0; i < 5; i++){
+        let computerSelection = getComputerChoice();
+        let playerSelection = prompt("choice?");
         console.log(`Round: ${round}`);
         if(computerSelection == playerSelection){
             res ="same";
@@ -13,7 +15,7 @@ function game(playerSelection, computerSelection){
             res ="won";
         }
         if(computerSelection == "rock" && playerSelection == "scissors")
-            res ="won";
+            res ="lost";
         if(computerSelection == "paper" && playerSelection == "rock")
             res ="lost";
         if(computerSelection == "paper" && playerSelection == "scissors")
@@ -35,19 +37,19 @@ function game(playerSelection, computerSelection){
             console.log(`You Lose! ${playerSelection} loses to ${computerSelection}`);
         }
 
-        if(comp == 3)
-            console.log("comp wins");
-        if(me == 3){
-            console.log("I win");
+        if(comp == 3){
+            console.log("COMPUTER WINS!");
+            break;
+        }
+        else if(me == 3){
+            console.log("YOU WIN!");
+            break;
         }
         round++;
     }
 }
 
-let me = 0;
-let comp = 0;
-let round = 1;
-let res = "";
-let computer = getComputerChoice();
-let player = prompt("choice?");
-game(player, computer);
+let me = 0, comp = 0, round = 1, res = "";
+game();
+
+
