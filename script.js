@@ -50,6 +50,6 @@ function game(){
 }
 
 let me = 0, comp = 0, round = 1, res = "";
-game();
+//game();
 
 

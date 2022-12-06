@@ -1,0 +1,66 @@
+body{
+    margin: 0;
+}
+
+.header{
+    background-color: darkblue;
+    height: 60px;
+}
+
+.header img{
+   height: auto;
+   width: 75px;
+   position: relative;
+   top: -7px;
+   left: -7px;
+}
+
+.header h1{
+    color: black;
+    position: relative;
+    top: -113px;
+    left: 70px;
+    font-size: 50px;
+    font-weight: normal;
+    letter-spacing: 4px;
+    color: white;
+}
+
+.buttn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+}
+
+.buttn button{
+    padding: 10px 20px;
+}
+
+.section{
+    background-color: orange;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.selections{
+    background-color: white;
+    height: 300px;
+    text-align: center;
+}
+
+.selections h3{
+    margin-top: 0px; /*closes margin*/
+    color: black;
+}
+
+.choices{
+    display: flex;
+    gap: 10rem;
+    justify-content: center;
+    align-items: center;
+}
+
+
