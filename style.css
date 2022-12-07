@@ -26,11 +26,23 @@ body{
     color: white;
 }
 
+img{
+    height: auto;
+    width: 100px;
+}
+
 .buttn{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 70px;
+}
+
+.buttn button{
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 3px;
+
 }
 
 .buttn button{
@@ -45,6 +57,23 @@ body{
     align-items: center;
 }
 
+#header1{
+    text-align: center;
+    background-color: darkblue;
+    width: 100%;
+    flex-grow: 1;
+    font-size: 20px;
+}
+
+#header2{
+    text-align: center;
+    background-color: black;
+    width: 100%;
+    flex-grow: 1;
+    font-size: 20px;
+
+}
+
 .selections{
     background-color: white;
     height: 300px;
@@ -52,8 +81,10 @@ body{
 }
 
 .selections h3{
-    margin-top: 0px; /*closes margin*/
+    margin-top: 15px; /*closes margin*/
     color: black;
+    font-size: 30px;
+    
 }
 
 .choices{
