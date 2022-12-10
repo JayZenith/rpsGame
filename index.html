@@ -10,17 +10,18 @@
   <body>
     <div class="header">
       <img src="pics/js.png" alt="js logo"></img>
-      <h1>Rock Paper Scissors Game</h1>
+      <h1 id="title">Rock Paper Scissors Game</h2>
     </div>
+    
     <div class="buttn">
       <button>Restart Game</button>
     </div>
     <div class="section">
       <div id="header1">
-        <h4>Player: 0</h4>
+        <h4 id="player">Player: 0</h4>
       </div>
       <div id="header2">
-        <h4>Computer: 0</h4>
+        <h4 id="computer">Computer: 0</h4>
       </div>
     </div>
     <div class="selections">
@@ -30,6 +31,12 @@
         <button id="paper" type="input"><img src="paper.svg" /></button>
         <button id="scissors" type="input"><img src="scissors.svg" /></button>
       </div>
+    </div>
+
+    <div class="results">
+      <h4 id="round">Round: 0</h4>
+      <h4 id="result">You Win! paper beats rock</h4>
+      <h4 id="end">YOU WIN!</h4>
     </div>
     
     <script src="script.js"></script>

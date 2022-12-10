@@ -1,156 +1,104 @@
+
 function getComputerChoice() {
     const array = ["rock", "paper", "scissors"];
     return array[Math.floor(Math.random() * array.length)];
  }
-/*
-function game(){
-    for(let i = 0; i < 5; i++){
-        let computerSelection = getComputerChoice();
-        let playerSelection = prompt("choice?");
-        console.log(`Round: ${round}`);
-        if(computerSelection == playerSelection){
-            res ="same";
-        }
-        if(computerSelection == "rock" && playerSelection == "paper"){
-            res ="won";
-        }
-        if(computerSelection == "rock" && playerSelection == "scissors")
-            res ="lost";
-        if(computerSelection == "paper" && playerSelection == "rock")
-            res ="lost";
-        if(computerSelection == "paper" && playerSelection == "scissors")
-            res ="won";
-        if(computerSelection == "scissors" && playerSelection == "rock")
-            res = "won";
-        if(computerSelection == "scissors" && playerSelection == "paper")
-            res = "lost";
 
-        if(res == "same"){
-            console.log(`Same! as ${playerSelection} == ${computerSelection}`);
-        }
-        if(res == "won"){
-            me++;
-            console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
-        }
-        if(res == "lost"){
-            comp++;
-            console.log(`You Lose! ${playerSelection} loses to ${computerSelection}`);
-        }
 
-        if(comp == 3){
-            console.log("COMPUTER WINS!");
-            break;
-        }
-        else if(me == 3){
-            console.log("YOU WIN!");
-            break;
-        }
-        round++;
+function game(e){
+    document.getElementById("end").style.display = "none";
+    computerSelection = getComputerChoice();
+    if(e.target !== e.currentTarget){
+        let clickedItem = e.target.id;
+        playerSelection = clickedItem;
     }
-}
-*/
-function alertFunction1() {
-    playerSelection="rock";
-    console.log(`${playerSelection}`);
-    game(playerSelection);
-}
+    e.stopPropagation();
+    console.log("Round:" + round);
+    document.getElementById("round").innerHTML = `Round: ${round}`;
 
-function alertFunction2() {
-    playerSelection="paper";
-    console.log(`${playerSelection}`);
-    game(playerSelection);
-  }
-
-  function alertFunction3() {
-    playerSelection="scissors";
-    console.log(`${playerSelection}`);
-    game(playerSelection);
-  }
-
-/*
-function game(){
-    let computerSelection = getComputerChoice();
     if(computerSelection == playerSelection){
-        res ="same";
-    }
-    if(computerSelection == "rock" && playerSelection == "paper"){
-        res ="won";
-    }
-    if(computerSelection == "rock" && playerSelection == "scissors")
-        res ="lost";
-    if(computerSelection == "paper" && playerSelection == "rock")
-        res ="lost";
-    if(computerSelection == "paper" && playerSelection == "scissors")
-        res ="won";
-    if(computerSelection == "scissors" && playerSelection == "rock")
-        res = "won";
-    if(computerSelection == "scissors" && playerSelection == "paper")
-        res = "lost";
-
-    if(res == "same"){
+        console.log("me" + me + " comp" + comp);
         console.log(`Same! as ${playerSelection} == ${computerSelection}`);
+        document.getElementById("player").innerHTML = `Player: ${me}`;
+        document.getElementById("computer").innerHTML = `Computer: ${comp}`;
+        document.getElementById("result").innerHTML = `Same! as ${playerSelection} == ${computerSelection}`;
+        document.getElementById("result").style.display = "block";
+
     }
-    if(res == "won"){
+    if(computerSelection == "rock" && playerSelection == "paper" ||
+        computerSelection == "paper" && playerSelection == "scissors" ||
+        computerSelection == "scissors" && playerSelection == "rock"){
         me++;
+        console.log("me" + me);
         console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
-    }
-    if(res == "lost"){
-        comp++;
-        console.log(`You Lose! ${playerSelection} loses to ${computerSelection}`);
+        document.getElementById("player").innerHTML = `Player: ${me}`;
+        document.getElementById("computer").innerHTML = `Computer: ${comp}`;
+        document.getElementById("result").innerHTML = `You Win! ${playerSelection} beats ${computerSelection}`;
+        document.getElementById("result").style.display = "block";
     }
 
+    if(computerSelection == "rock" && playerSelection == "scissors" ||
+        computerSelection == "paper" && playerSelection == "rock" ||
+        computerSelection == "scissors" && playerSelection == "paper"){
+        comp++;
+        console.log("comp" + comp);
+        console.log(`You Lose! ${playerSelection} loses to ${computerSelection}`);
+        document.getElementById("player").innerHTML = `Player: ${me}`;
+        document.getElementById("computer").innerHTML = `Computer: ${comp}`;
+        document.getElementById("result").innerHTML = `You Lose! ${playerSelection} loses to ${computerSelection}`;
+        document.getElementById("result").style.display = "block";
+    }
+    round++;
     if(comp == 3){
-        console.log("COMPUTER WINS!");
+        document.getElementById("end").innerHTML = `YOU LOST`;
+        document.getElementById("end").style.display = "block";
+        console.log("NEW GAME!");
+        me = 0, comp = 0;
+        round = 1;
     }
     else if(me == 3){
-        console.log("YOU WIN!");
+        document.getElementById("end").innerHTML = `YOU WON`;
+        document.getElementById("end").style.display = "block";
+        console.log("NEW GAME!");
+        me = 0, comp = 0;
+        round = 1;
     }
-
-}
-*/
-
-
-function game(playerSelection)
-{
-    let computerSelection = getComputerChoice();
-    if(computerSelection == playerSelection){
-        res ="same";
+    else if(round == 6 && me == comp){
+        document.getElementById("end").innerHTML = `TIE!`;
+        document.getElementById("end").style.display = "block";
+        console.log("NEW GAME!");
+        me = 0, comp = 0;
+        round = 1;
     }
-    if(computerSelection == "rock" && playerSelection == "paper"){
-        res ="won";
+    else if(round == 6) {
+        if(comp > me){
+            document.getElementById("end").innerHTML = `YOU LOST`;
+            document.getElementById("end").style.display = "block";
+            console.log("NEW GAME!");
+            me = 0, comp = 0;
+            round = 1;
+        }
+        else if(me > comp){
+            document.getElementById("end").innerHTML = `YOU WON`;
+            document.getElementById("end").style.display = "block";
+            console.log("NEW GAME!");
+            me = 0, comp = 0;
+            round = 1;
+        }
     }
-    if(computerSelection == "rock" && playerSelection == "scissors")
-        res ="lost";
-    if(computerSelection == "paper" && playerSelection == "rock")
-        res ="lost";
-    if(computerSelection == "paper" && playerSelection == "scissors")
-        res ="won";
-    if(computerSelection == "scissors" && playerSelection == "rock")
-        res = "won";
-    if(computerSelection == "scissors" && playerSelection == "paper")
-        res = "lost";
-
-    if(res == "same"){
-        console.log(`Same! as ${playerSelection} == ${computerSelection}`);
-    }
-    if(res == "won"){
-        me++;
-        console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
-    }
-    if(res == "lost"){
-        comp++;
-        console.log(`You Lose! ${playerSelection} loses to ${computerSelection}`);
-    }
-
 }
 
-let playerSelection ="";    
-let btn1 = document.querySelector('#rock');
-let btn2 = document.querySelector('#paper');
-let btn3 = document.querySelector('#scissors');
-btn1.addEventListener('click', alertFunction1);
-btn2.addEventListener('click', alertFunction2);
-btn3.addEventListener('click', alertFunction3);
-let me = 0, comp = 0, round = 1;
+function restartGame(){
+    console.log("GAME RESTARTED");
+    me = 0, comp = 0, round = 1;
+    document.getElementById("end").style.display = "none";
+    document.getElementById("round").innerHTML = `Round: ${round - 1}`;
+    document.getElementById("result").style.display = "none";
 
+}
 
+let playerSelection = "", computerSelection = "", me = 0, comp = 0, round = 1, res="";
+let theParent = document.querySelector(".choices");
+let restart = document.querySelector(".buttn");
+theParent.addEventListener("click", game, false);
+restart.addEventListener("click", restartGame, false);

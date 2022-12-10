@@ -28,7 +28,15 @@ body{
 
 img{
     height: auto;
-    width: 100px;
+    width: 50px;
+    pointer-events: none; /*to click image*/
+
+}
+
+.choices button
+{
+    height: 100px;
+    width: 130px;
 }
 
 .buttn{
@@ -92,6 +100,30 @@ img{
     gap: 10rem;
     justify-content: center;
     align-items: center;
+}
+
+.results{
+    height: 150px;
+    background-color: darkblue;
+    color: white;
+}
+
+
+#round{
+    position: relative;
+    top: 10px;
+    font-size: 20px;
+}
+
+#result{
+    font-size: 20px;
+    display: none;
+}
+
+#end{
+    display: none;
+    color: red;
+    font-weight: bold;
 }
 
 
